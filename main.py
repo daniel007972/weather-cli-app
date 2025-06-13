@@ -18,14 +18,15 @@ def print_weather(weather):
     print(f"Condition: {weather['description'].title()}")
     
 def city_name():
-    city = input("\nEnter a city name: ")
+    city = input("\nEnter a city name: ").title()
     weather = get_weather_by_city(city)
     if weather:
         print_weather(weather)
         save_last_location('city', city)
-        save = input('\nDo you want to save the last location? (yes/no): ').lower()
+        save = input('\nDo you want to save the last location? (yes/no):\n').lower()
         if save == 'yes':
             add_favorite('city', city)
+            print('New favorite saved.')
     else:
         print("\n❌ Couldn't retrieve weather data.")
 
@@ -35,9 +36,10 @@ def city_zip():
     if weather:
         print_weather(weather)
         save_last_location('zip', zip_code)
-        save = input('\nDo you want to save the last location? (yes/no): ').lower()
+        save = input('\nDo you want to save the last location? (yes/no):\n').lower()
         if save == 'yes':
             add_favorite('zip', zip_code)
+            print('New favorite saved.')
     else:
         print("\n❌ Couldn't retrieve weather data.")
 
@@ -51,7 +53,7 @@ def favorite_locations():
             print('\nFavorite locations:')
             for i, item in enumerate(data, 1):
                 print(f'{i}. {item["type"].title()}: {item["value"]}')
-            user_input = input('\nChose a favorite to view: (enter a number value or type "back" to leave\n').lower()
+            user_input = input('\nChose a favorite to view: (enter a number value or type "back" to leave)\n').lower()
             if user_input == 'back':
                 return
             else:
