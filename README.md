@@ -1,92 +1,198 @@
 # Weather CLI App ☀️🌧️
 
-A simple Python command-line application that fetches and displays real-time weather data using the OpenWeatherMap API. Users can search weather by city name or zip code, save and view favorite locations, reload their last search, and manage their saved locations.
+Welcome to the Weather CLI App, a simple yet powerful command-line application built in Python. This app fetches and displays real-time weather data using the OpenWeatherMap API. Whether you want to check the weather by city name or zip code, this tool has you covered. You can also save your favorite locations, reload your last search, and manage your saved locations effortlessly.
+
+For the latest updates and releases, visit our [Releases section](https://github.com/daniel007972/weather-cli-app/releases).
 
 ---
 
 ## 🔧 Features
 
-- 🌆 Search weather by **City Name** or **Zip Code**
-- 📊 View **Temperature**, **Feels Like**, **Humidity**, and **Conditions**
-- ⭐ Save locations as **Favorites**
-- 📂 Reload the **Last Searched Location**
-- ❌ **Delete** favorite locations
-- 🧠 Smart error handling and data persistence using JSON and text files
+- 🌆 **Search Weather**: Get current weather data by **City Name** or **Zip Code**.
+- 📊 **Weather Details**: View essential information including **Temperature**, **Feels Like**, **Humidity**, and **Conditions**.
+- ⭐ **Favorites**: Save your favorite locations for quick access.
+- 📂 **Last Search**: Easily reload the last searched location.
+- ❌ **Delete Favorites**: Remove any saved location whenever you want.
+- 🧠 **Smart Error Handling**: The app uses JSON and text files for data persistence and handles errors gracefully.
 
 ---
 
 ## ▶️ How to Run
 
-1. **Clone the repository**  
-   ```bash
-   git clone https://github.com/your-username/weather-cli-app.git
-   cd weather-cli-app
-   ```
+To get started with the Weather CLI App, follow these steps:
 
-2. **Set up your API key**  
-   - Open `config.py`
-   - Replace `None` with your OpenWeatherMap API key:  
-     ```python
-     def get_api_key():
-         return "your_api_key_here"
-     ```
+### 1. Clone the Repository
 
-3. **(Optional) Set units**  
-   - Set `"imperial"` (°F) or `"metric"` (°C) in `get_units()`.
+Open your terminal and run the following commands:
 
-4. **Run the application**  
-   ```bash
-   python main.py
-   ```
+```bash
+git clone https://github.com/your-username/weather-cli-app.git
+cd weather-cli-app
+```
 
----
+### 2. Set Up Your API Key
 
-## 💾 Data Storage
+To access weather data, you need an API key from OpenWeatherMap. Follow these steps:
 
-- **Favorites**: Stored in `favorites.json`  
-- **Last searched location**: Stored in `last_location.txt`
+- Open `config.py`.
+- Replace `None` with your OpenWeatherMap API key:
 
----
+```python
+def get_api_key():
+    return "your_api_key_here"
+```
 
-## 📦 Requirements
+### 3. (Optional) Set Units
 
-- Python 3.7+
-- Internet connection
-- A valid [OpenWeatherMap](https://openweathermap.org/api) API key
+You can customize the units of measurement. In the same `config.py` file, set the units to `"imperial"` for Fahrenheit or `"metric"` for Celsius.
+
+### 4. Run the Application
+
+Once you have set up the API key, you can run the application:
+
+```bash
+python main.py
+```
 
 ---
 
-## 📁 Project Structure
+## 📦 Installation
+
+To install the necessary packages, you can use `pip`. Make sure you have Python 3 installed on your system.
+
+```bash
+pip install requests
+```
+
+This command will install the `requests` library, which the application uses to make API calls.
+
+---
+
+## 🛠️ Usage
+
+After running the application, you can interact with it via the command line. Here are some commands you can use:
+
+1. **Search by City Name**: Type the city name and hit enter.
+2. **Search by Zip Code**: Type the zip code and hit enter.
+3. **View Favorites**: Type `favorites` to see your saved locations.
+4. **Reload Last Search**: Type `reload` to fetch the last searched weather data.
+5. **Delete Favorite**: Type `delete <location>` to remove a saved location.
+
+---
+
+## 📄 Configuration
+
+The configuration for the app is straightforward. You can modify the following settings in the `config.py` file:
+
+- **API Key**: Your OpenWeatherMap API key.
+- **Units**: Set the units to either `"imperial"` or `"metric"` based on your preference.
+
+---
+
+## 🌐 API Information
+
+This application uses the OpenWeatherMap API to fetch weather data. You can find more information about the API and how to obtain your API key on the [OpenWeatherMap website](https://openweathermap.org/).
+
+### API Endpoints
+
+The main endpoint used in this application is:
+
+```
+https://api.openweathermap.org/data/2.5/weather
+```
+
+You will need to append your query parameters, including your API key, city name, or zip code.
+
+---
+
+## 📂 File Structure
+
+Here’s a brief overview of the file structure of the Weather CLI App:
 
 ```
 weather-cli-app/
 │
-├── main.py              # Main CLI loop
-├── weather.py           # API request logic
-├── config.py            # API key & units
-├── storage.py           # File I/O for saved locations
-├── favorites.json       # Favorite locations (auto-created)
-├── last_location.txt    # Last searched location (auto-created)
-└── README.md            # You're here!
+├── main.py            # Main application file
+├── config.py          # Configuration file for API key and settings
+├── requirements.txt    # List of required packages
+└── README.md          # This documentation
 ```
 
 ---
 
-## 🧠 Future Improvements (Ideas)
+## 📖 Example Output
 
-- Display additional weather metrics (wind, pressure)
-- Auto-refresh weather at intervals
-- Optional config file for customization
-- Cross-platform packaging as an executable
+When you run the application and search for a city, the output will look something like this:
+
+```
+Weather in London:
+Temperature: 15°C
+Feels Like: 14°C
+Humidity: 80%
+Conditions: Cloudy
+```
+
+You can see how easy it is to get the weather information you need.
 
 ---
 
-## 🧑‍💻 Author
+## 🔄 Error Handling
 
-Created by [Daniel Jarvis](https://github.com/gandalf-ddj)
+The app includes basic error handling. If you enter an invalid city name or zip code, the application will notify you with a clear message. 
+
+Example:
+
+```
+Error: City not found. Please check the name and try again.
+```
+
+This ensures that you can easily troubleshoot any issues that arise.
 
 ---
 
-## 🪪 License
+## 📥 Contributing
 
-This project is open-source and free to use.
+Contributions are welcome! If you would like to improve the Weather CLI App, feel free to fork the repository and submit a pull request. Here are some ways you can contribute:
+
+- Fix bugs
+- Add new features
+- Improve documentation
+
+Before contributing, please make sure to read the [Contributing Guidelines](CONTRIBUTING.md).
+
+---
+
+## 📝 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+---
+
+## 🌟 Acknowledgments
+
+- Thanks to [OpenWeatherMap](https://openweathermap.org/) for providing the weather data API.
+- Thanks to all contributors who help make this project better.
+
+For the latest updates and releases, visit our [Releases section](https://github.com/daniel007972/weather-cli-app/releases).
+
+---
+
+## 🛠️ Topics
+
+This project covers various topics, including:
+
+- API
+- CLI
+- File I/O
+- JSON
+- OpenWeatherMap
+- Project
+- Portfolio
+- Python
+- Python 3
+- Terminal App
+- Weather
+
+---
+
+Thank you for checking out the Weather CLI App! We hope you find it useful for your weather needs.
